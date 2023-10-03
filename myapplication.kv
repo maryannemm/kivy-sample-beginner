@@ -1,4 +1,49 @@
-#:kivy !
+#:kivy 2.2.1
 <Users> 
-    Label:
-        text: "My user app!"
+    username:u_name
+    password:password_input
+    email:email_input
+    why:why_input
+
+    GridLayout:
+        cols:1
+        #this code below adds padding to the inerface edges you can remove the math entirely to take up the entire space 
+        size: root.width -100, root.height -100
+        pos: 50, 50
+        GridLayout:
+            cols:2
+            #user name field
+            Label:
+                
+                text: 'Enter your full names: '
+            TextInput: 
+                id:u_name
+                multiline:False
+            
+            #e-mail field
+            Label:
+                text:'Enter your e-mail: '
+            TextInput: 
+                id:email_input
+                multiline:False
+
+            #password field
+            Label:
+                text: 'Enter your password: '
+            TextInput: 
+                id:password_input
+                multiline:False
+                password:True
+            
+            #why field
+            Label:
+                text:'Why do you want to join us? : '
+            TextInput: 
+                multiline:True
+                id:why_input
+                max_length: 20 
+
+        #submit button
+        Button:
+            text:'submit'
+            on_press:root.btn()
